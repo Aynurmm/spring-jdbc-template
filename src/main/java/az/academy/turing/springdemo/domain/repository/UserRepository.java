@@ -1,14 +1,15 @@
 package az.academy.turing.springdemo.domain.repository;
 
-import az.academy.turing.springdemo.domain.entity.User;
+import az.academy.turing.springdemo.domain.entity.UserEntity;
 
 import java.util.List;
+import java.util.Optional;
 
 
 public interface UserRepository {
-    User save(User user);
-    List<User> getAll();
-    User findbyId(long id);
+    UserEntity save(UserEntity user);
+    List<UserEntity> getAll();
+   Optional<UserEntity> findbyId(long id);
     void deletebyId(long id);
 
 }

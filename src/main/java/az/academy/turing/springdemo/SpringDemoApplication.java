@@ -1,6 +1,6 @@
 package az.academy.turing.springdemo;
 
-import az.academy.turing.springdemo.domain.entity.User;
+import az.academy.turing.springdemo.domain.entity.UserEntity;
 import az.academy.turing.springdemo.domain.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +19,9 @@ public class SpringDemoApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 //        userRepository.save(new User("Aysel", "aysel@gmail.com", "jbe1110"));
-        System.out.println(userRepository.getAll());
+//        userRepository.save(new UserEntity("Ali", "ali@gmail.com", "jbe1110"));
+//        userRepository.save(new UserEntity("Ayshe", "ayshe09@gmail.com", "fe1220"));
+        userRepository.save(new UserEntity("Nermin", "nermind09@gmail.com", "devops1210"));
+//        System.out.println(userRepository.getAll());
     }
 }
