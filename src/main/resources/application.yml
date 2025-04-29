@@ -6,9 +6,14 @@ spring:
     name: myapp
 
   datasource:
-    url: jdbc:postgresql://localhost:5436/mydatabase
+    url: jdbc:postgresql://localhost:5435/mydatabase
     username: admin
     password: admin123
+    driver-class-name: org.postgresql.Driver
 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
 
 

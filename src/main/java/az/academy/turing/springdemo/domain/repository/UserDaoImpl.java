@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserRepository{
 
     @Override
     public List<User> getAll() {
-      return jdbcTemplate.query(UserQuery.query1,new UserRowMapper());
+      return jdbcTemplate.query(UserQuery.query1,new UserRepositoryMapper());
     }
 
     @Override
@@ -34,18 +34,5 @@ public class UserDaoImpl implements UserRepository{
     @Override
     public void deletebyId(long id) {
 
-    }
-
-    class UserRowMapper implements RowMapper<User>{
-
-        @Override
-        public User mapRow(ResultSet rs, int rowNum) throws SQLException {
-            return User.builder()
-                    .id(rs.getLong("id"))
-                    .name(rs.getString("name"))
-                    .email(rs.getString("email"))
-                    .group(rs.getString("group_name"))
-                    .build();
-        }
     }
 }
