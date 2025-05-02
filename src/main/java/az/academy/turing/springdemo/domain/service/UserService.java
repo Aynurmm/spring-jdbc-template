@@ -45,14 +45,16 @@ public class UserService {
             return userMapper.toDto(updatedEntity);
     }
 
-    public void deleteUser(Long id){
+    public void hardDeleteUser(Long id) {
         //hard delete
         userRepository.deletebyId(id);
-
+    }
+    public void softDeleteUser(Long id){
         //soft delete
         UserEntity deletedUser=userRepository.findbyId(id)
-                .orElseThrow(()->new NotfoundException("user not found wuth id: "+id));
-        deletedUser.setStatus(Status.DELETED);
-        userRepository.save(deletedUser);
-    }
-}
+                .orElseThrow(()->new NotfoundException("user not found with id: "+id));
+        userRepository.updateStatusById(id,Status.DELETED.name());
+        System.out.println(deletedUser.getId());
+
+    }}
+

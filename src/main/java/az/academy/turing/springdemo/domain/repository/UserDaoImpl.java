@@ -1,6 +1,7 @@
 package az.academy.turing.springdemo.domain.repository;
 
 import az.academy.turing.springdemo.domain.entity.UserEntity;
+import az.academy.turing.springdemo.domain.model.enums.Status;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -16,7 +17,11 @@ public class UserDaoImpl implements UserRepository {
 
     @Override
     public UserEntity save(UserEntity user) {
-        jdbcTemplate.update(UserQuery.query, user.getName(), user.getEmail(), user.getGroup());
+        if (user.getId() != null) {
+            jdbcTemplate.update(UserQuery.query5, user.getName(), user.getEmail(), user.getGroup(),user.getId());
+        } else {
+            jdbcTemplate.update(UserQuery.query, user.getName(), user.getEmail(), user.getGroup());
+        }
         return user;
     }
 
@@ -33,5 +38,10 @@ public class UserDaoImpl implements UserRepository {
     @Override
     public void deletebyId(long id) {
         jdbcTemplate.update(UserQuery.getQuery3, id);
+    }
+
+    @Override
+    public void updateStatusById(Long id, String status) {
+        jdbcTemplate.update(UserQuery.query4, status, id);
     }
 }

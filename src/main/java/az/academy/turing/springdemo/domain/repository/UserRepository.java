@@ -8,8 +8,13 @@ import java.util.Optional;
 
 public interface UserRepository {
     UserEntity save(UserEntity user);
+
     List<UserEntity> getAll();
-   Optional<UserEntity> findbyId(long id);
+
+    Optional<UserEntity> findbyId(long id);
+
     void deletebyId(long id);
+
+    void updateStatusById(Long id, String status);
 
 }
