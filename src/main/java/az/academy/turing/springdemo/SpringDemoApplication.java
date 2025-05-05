@@ -32,11 +32,11 @@ public class SpringDemoApplication implements CommandLineRunner {
 //        userService.hardDeleteUser(13l);
 //        userRepository.findbyId(2l);
 //        userService.createUser(new CreateUserRequest("Lale","lale@gmail.com","jbe1210"));
-        System.out.println(userService.findAll());
-        userService.updateUser(8L, UpdateUserRequest.builder().name("Vali")
-                .email("vali@gmail.com")
-                .group("jbe1210")
-                .build());
+//        System.out.println(userService.findAll());
+//        userService.updateUser(8L, UpdateUserRequest.builder().name("Vali")
+//                .email("vali@gmail.com")
+//                .group("jbe1210")
+//                .build());
 //        System.out.println(userRepository.getAll());
     }
 }
